@@ -3,7 +3,7 @@ import DetailCard from "./detailCard";
 
 const IpDetail = ({ data }) => {
   return (
-    <div className="p-4 bg-white rounded-xl w-full m-auto z-10 grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2">
+    <div className="p-4 drop-shadow-xl bg-white rounded-xl w-full m-auto z-10 grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2">
       <DetailCard name="ip address" value={data.ip ? data.ip : "not Founded"} />
       <DetailCard
         name="location"
