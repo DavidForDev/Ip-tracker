@@ -18,7 +18,7 @@ const Map = ({ data, style }) => {
       onZoom={(nextViewport) => setViewPort(nextViewport.viewState)}
       mapboxAccessToken="pk.eyJ1IjoiZGF2aWR0YWtpZHplIiwiYSI6ImNsZDl1NzJnOTBjbm0zeWxpMWp5NHByangifQ.JoLIPVb3HX9ckfVClhlCNQ"
     >
-      {data ? (
+      {!data.latitude || !data.longitude ? (
         <Marker latitude={data.latitude} longitude={data.longitude} />
       ) : (
         ""
