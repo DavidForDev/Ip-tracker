@@ -60,10 +60,8 @@ export default function Home({ data }) {
 export async function getServerSideProps({ req }) {
   const getGuestIp = requestIp.getClientIp(req);
 
-  console.log(getGuestIp);
-
   const fetcher = await fetch(
-    `https://api.ipdata.co/5.152.26.237?api-key=c61de06ea8b66b93725d151e7d39ca9b7bf84847f35c41095baffc3a`
+    `https://api.ipdata.co/${getGuestIp}?api-key=c61de06ea8b66b93725d151e7d39ca9b7bf84847f35c41095baffc3a`
   );
 
   const response = await fetcher.json();
