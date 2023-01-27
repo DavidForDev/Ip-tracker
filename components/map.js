@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ReactMapGl, { Marker } from "react-map-gl";
+import ReactMapGl, { Marker, ViewStateChangeEvent } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style, mapbox_key }) => {
@@ -14,6 +14,7 @@ const Map = ({ data, style, mapbox_key }) => {
       {...viewPort}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
+      initialViewState={viewPort}
       onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
       onZoom={(nextViewport) => setViewPort(nextViewport.viewState)}
       mapboxAccessToken={mapbox_key}
