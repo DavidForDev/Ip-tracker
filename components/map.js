@@ -21,7 +21,12 @@ const Map = ({ data, style }) => {
       {...viewPort}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
-      onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
+      onDrag={(nextViewport) =>
+        setViewPort({
+          latitude: nextViewport.viewState.latitude,
+          longitude: nextViewport.viewState.longitude,
+        })
+      }
       onZoom={(nextViewport) => setViewPort(nextViewport.viewState)}
       mapboxAccessToken="pk.eyJ1IjoiZGF2aWR0YWtpZHplIiwiYSI6ImNsZDl1NzJnOTBjbm0zeWxpMWp5NHByangifQ.JoLIPVb3HX9ckfVClhlCNQ"
     >
