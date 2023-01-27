@@ -15,18 +15,18 @@ import RightArrow from "../public/icons/rightArrow.js";
 import { PrimaryInput, PrimaryButton } from "../UIElements/elements";
 
 export default function Home({ data, api_key }) {
-  const [ipData, setIpData] = useState({});
+  const [ipData, setIpData] = useState(data);
   const [Ip, setIp] = useState("");
 
   const getData = async (Ip) => {
-    if (Ip === "") return alert("please Fill field!");
+    if (Ip === "") return setIpData(data);
 
     const fetcher = await fetch(
       `https://api.ipdata.co/${Ip}?api-key=${api_key}`
     );
     const response = await fetcher.json();
 
-    return setIpData(response);
+    await setIpData((prev) => (prev = response));
   };
 
   return (
