@@ -26,7 +26,7 @@ export default function Home({ data, api_key }) {
     );
     const response = await fetcher.json();
 
-    await setIpData((prev) => (prev = response));
+    await setIpData(response);
   };
 
   console.log(data);
