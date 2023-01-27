@@ -55,10 +55,13 @@ export default function Home({ data, api_key }) {
                 <RightArrow />
               </PrimaryButton>
             </div>
-            <IpDetail data={ipData} />
+            <IpDetail data={ipData ? ipData : {}} />
           </div>
         </div>
-        <Map data={ipData} style={{ width: "100%", border: "none" }} />
+        <Map
+          data={ipData ? ipData : {}}
+          style={{ width: "100%", border: "none" }}
+        />
       </div>
     </>
   );
