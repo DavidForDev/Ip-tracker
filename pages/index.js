@@ -14,7 +14,7 @@ import RightArrow from "../public/icons/rightArrow.js";
 // ========== UIElement =========== \\
 import { PrimaryInput, PrimaryButton } from "../UIElements/elements";
 
-export default function Home({ data, api_key }) {
+export default function Home({ data, api_key, mapbox_key }) {
   const [ipData, setIpData] = useState(null);
   const [Ip, setIp] = useState("");
 
@@ -32,8 +32,6 @@ export default function Home({ data, api_key }) {
   if (ipData === null) {
     setIpData(data);
   }
-
-  console.log(ipData);
 
   return (
     <>
@@ -60,6 +58,7 @@ export default function Home({ data, api_key }) {
         </div>
         <Map
           data={ipData ? ipData : {}}
+          mapbox_key={mapbox_key}
           style={{ width: "100%", border: "none" }}
         />
       </div>
@@ -82,6 +81,7 @@ export async function getServerSideProps({ req }) {
     props: {
       data: response,
       api_key: process.env.API_KEY,
+      mapbox_key: process.env.MAPBOX_KEY,
     },
   };
 }
