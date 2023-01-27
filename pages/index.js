@@ -22,7 +22,7 @@ export default function Home({ data }) {
     if (Ip === "") return alert("please Fill field!");
 
     const fetcher = await fetch(
-      `https://api.ipdata.co/${Ip}?api-key=c61de06ea8b66b93725d151e7d39ca9b7bf84847f35c41095baffc3a`
+      `https://api.ipdata.co/${Ip}?api-key=${process.env.API_KEY}`
     );
     const response = await fetcher.json();
 
@@ -62,9 +62,9 @@ export async function getServerSideProps({ req }) {
   const getGuestIp = requestIp.getClientIp(req);
 
   const fetcher = await fetch(
-    `https://api.ipdata.co/${
-      getGuestIp ? getGuestIp : ""
-    }?api-key=c61de06ea8b66b93725d151e7d39ca9b7bf84847f35c41095baffc3a`
+    `https://api.ipdata.co/${getGuestIp ? getGuestIp : ""}?api-key=${
+      process.env.API_KEY
+    }`
   );
 
   const response = await fetcher.json();
