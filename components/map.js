@@ -9,13 +9,6 @@ const Map = ({ data, style }) => {
     zoom: 10,
   });
 
-  useEffect(() => {
-    setViewPort({
-      latitude: data.latitude,
-      longitude: data.longitude,
-    });
-  });
-
   return (
     <ReactMapGl
       {...viewPort}
