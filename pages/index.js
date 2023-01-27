@@ -14,7 +14,7 @@ import RightArrow from "../public/icons/rightArrow.js";
 // ========== UIElement =========== \\
 import { PrimaryInput, PrimaryButton } from "../UIElements/elements";
 
-export default function Home({ data }) {
+export default function Home({ data, api_key }) {
   const [ipData, setIpData] = useState(data);
   const [Ip, setIp] = useState("");
 
@@ -22,7 +22,7 @@ export default function Home({ data }) {
     if (Ip === "") return alert("please Fill field!");
 
     const fetcher = await fetch(
-      `https://api.ipdata.co/${Ip}?api-key=${process.env.API_KEY}`
+      `https://api.ipdata.co/${Ip}?api-key=${api_key}`
     );
     const response = await fetcher.json();
 
@@ -72,6 +72,7 @@ export async function getServerSideProps({ req }) {
   return {
     props: {
       data: response,
+      api_key: process.env.API_KEY,
     },
   };
 }
