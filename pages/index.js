@@ -15,7 +15,7 @@ import RightArrow from "../public/icons/rightArrow.js";
 import { PrimaryInput, PrimaryButton } from "../UIElements/elements";
 
 export default function Home({ data, api_key, mapbox_key }) {
-  const [ipData, setIpData] = useState(null);
+  const [ipData, setIpData] = useState(data);
   const [Ip, setIp] = useState("");
 
   const getData = async (Ip) => {
@@ -26,13 +26,8 @@ export default function Home({ data, api_key, mapbox_key }) {
     );
     const response = await fetcher.json();
 
-    await setIpData(response);
+    await setIpData((ipData) => Object.assign({}, ipData, response));
   };
-
-  if (ipData === null) {
-    setIpData(data);
-  }
-
   return (
     <>
       <HeadLayout title="Ip Tracker" />
