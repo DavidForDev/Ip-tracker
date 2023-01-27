@@ -4,16 +4,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style }) => {
   const [viewPort, setViewPort] = useState({
-    latitude: null,
-    longitude: null,
+    latitude: data.latitude,
+    longitude: data.longitude,
     zoom: 10,
-  });
-
-  useEffect(() => {
-    setViewPort({
-      latitude: data.latitude,
-      longitude: data.longitude,
-    });
   });
 
   return (
@@ -21,12 +14,7 @@ const Map = ({ data, style }) => {
       {...viewPort}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
-      onDrag={(nextViewport) =>
-        setViewPort({
-          latitude: nextViewport.viewState.latitude,
-          longitude: nextViewport.viewState.longitude,
-        })
-      }
+      onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
       onZoom={(nextViewport) => setViewPort(nextViewport.viewState)}
       mapboxAccessToken="pk.eyJ1IjoiZGF2aWR0YWtpZHplIiwiYSI6ImNsZDl1NzJnOTBjbm0zeWxpMWp5NHByangifQ.JoLIPVb3HX9ckfVClhlCNQ"
     >
