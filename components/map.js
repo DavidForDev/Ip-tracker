@@ -4,16 +4,21 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style }) => {
   const [viewPort, setViewPort] = useState({
-    latitude: data.latitude,
-    longitude: data.longitude,
+    latitude: null,
+    longitude: null,
     zoom: 10,
   });
 
+  useEffect(() => {
+    setViewPort({
+      latitude: data.latitude,
+      longitude: data.longitude,
+    });
+  }, [viewPort]);
+
   return (
     <ReactMapGl
-      latitude={viewPort.latitude}
-      longitude={viewPort.longitude}
-      zoom={viewPort.zoom}
+      {...viewPort}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
       onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
