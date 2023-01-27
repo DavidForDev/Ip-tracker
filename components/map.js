@@ -4,16 +4,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style }) => {
   const [viewPort, setViewPort] = useState({
-    latitude: null,
-    longitude: null,
+    latitude: data.latitude,
+    longitude: data.longitude,
     zoom: 10,
-  });
-
-  useEffect(() => {
-    setViewPort({
-      latitude: data.latitude,
-      longitude: data.longitude,
-    });
   });
 
   console.log(viewPort);
