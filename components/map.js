@@ -14,7 +14,7 @@ const Map = ({ data, style }) => {
       latitude: data.latitude,
       longitude: data.longitude,
     });
-  }, [viewPort, data]);
+  });
 
   return (
     <ReactMapGl
