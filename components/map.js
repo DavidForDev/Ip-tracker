@@ -17,8 +17,6 @@ const Map = ({ data, style, mapbox_key }) => {
     });
   }, [data]);
 
-  console.log(viewPort);
-
   return (
     <ReactMapGl
       {...viewPort}
