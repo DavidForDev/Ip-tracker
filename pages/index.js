@@ -29,8 +29,6 @@ export default function Home({ data, api_key }) {
     return setIpData(response);
   };
 
-  console.log(ipData);
-
   return (
     <>
       <HeadLayout title="Ip Tracker" />
