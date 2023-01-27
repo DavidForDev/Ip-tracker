@@ -15,14 +15,15 @@ const Map = ({ data, style, mapbox_key }) => {
       longitude: data.longitude,
       zoom: 10,
     });
-  }, []);
+  }, [data]);
+
+  console.log(viewPort);
 
   return (
     <ReactMapGl
       {...viewPort}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
-      initialViewState={viewPort}
       onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
       onZoom={(nextViewport) => setViewPort(nextViewport.viewState)}
       mapboxAccessToken={mapbox_key}
