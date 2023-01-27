@@ -33,7 +33,7 @@ export default function Home({ data, api_key }) {
     if (ipData === null) {
       setIpData(data);
     }
-  }, [ipData, data]);
+  });
 
   return (
     <>
