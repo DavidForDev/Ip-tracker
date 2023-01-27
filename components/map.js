@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
-import ReactMapGl, { Marker, ViewStateChangeEvent } from "react-map-gl";
+import ReactMapGl, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style, mapbox_key }) => {
   const [viewPort, setViewPort] = useState({
-    latitude: data.latitude,
-    longitude: data.longitude,
-    zoom: 10,
+    latitude: 0,
+    longitude: 0,
+    zoom: 0,
   });
+
+  useEffect(() => {
+    setViewPort({
+      latitude: data.latitude,
+      longitude: data.longitude,
+      zoom: 10,
+    });
+  }, []);
 
   return (
     <ReactMapGl
