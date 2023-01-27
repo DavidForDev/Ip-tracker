@@ -6,7 +6,7 @@ const Map = ({ data, style }) => {
   const [viewPort, setViewPort] = useState({
     latitude: null,
     longitude: null,
-    zoom: 10,
+    zoom: 0,
   });
 
   if (
@@ -19,6 +19,7 @@ const Map = ({ data, style }) => {
     setViewPort({
       latitude: data.latitude,
       longitude: data.longitude,
+      zoom: 10,
     });
   }
 
