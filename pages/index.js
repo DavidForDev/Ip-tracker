@@ -15,7 +15,7 @@ import RightArrow from "../public/icons/rightArrow.js";
 import { PrimaryInput, PrimaryButton } from "../UIElements/elements";
 
 export default function Home({ data, api_key }) {
-  const [ipData, setIpData] = useState(data);
+  const [ipData, setIpData] = useState(null);
   const [Ip, setIp] = useState("");
 
   const getData = async (Ip) => {
@@ -29,7 +29,11 @@ export default function Home({ data, api_key }) {
     await setIpData(response);
   };
 
-  console.log(data);
+  useEffect(() => {
+    if (ipData === null) {
+      setIpData(data);
+    }
+  }, [ipData, data]);
 
   return (
     <>
