@@ -29,11 +29,9 @@ export default function Home({ data, api_key }) {
     await setIpData(response);
   };
 
-  useEffect(() => {
-    if (ipData === null) {
-      setIpData(data);
-    }
-  });
+  if (ipData === null) {
+    setIpData(data);
+  }
 
   return (
     <>
