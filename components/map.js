@@ -11,7 +11,9 @@ const Map = ({ data, style }) => {
 
   return (
     <ReactMapGl
-      {...viewPort}
+      latitude={viewPort.latitude}
+      longitude={viewPort.longitude}
+      zoom={viewPort.zoom}
       mapStyle="mapbox://styles/davidtakidze/clddfaevf004b01mo8fqagfdt"
       style={style}
       onDrag={(nextViewport) => setViewPort(nextViewport.viewState)}
