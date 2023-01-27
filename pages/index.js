@@ -28,6 +28,9 @@ export default function Home({ data, api_key, mapbox_key }) {
 
     await setIpData((ipData) => Object.assign({}, ipData, response));
   };
+
+  console.log(ipData);
+
   return (
     <>
       <HeadLayout title="Ip Tracker" />
