@@ -33,6 +33,8 @@ export default function Home({ data, api_key }) {
     setIpData(data);
   }
 
+  console.log(ipData);
+
   return (
     <>
       <HeadLayout title="Ip Tracker" />
