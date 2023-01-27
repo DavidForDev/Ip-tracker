@@ -4,10 +4,23 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 const Map = ({ data, style }) => {
   const [viewPort, setViewPort] = useState({
-    latitude: data.latitude,
-    longitude: data.longitude,
+    latitude: null,
+    longitude: null,
     zoom: 10,
   });
+
+  if (
+    data.latitude === null
+      ? true
+      : data.latitude !== viewPort.latitude
+      ? true
+      : false
+  ) {
+    setViewPort({
+      latitude: data.latitude,
+      longitude: data.longitude,
+    });
+  }
 
   return (
     <ReactMapGl
